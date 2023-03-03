@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "question": "How many wives did Henry VIII have?",
+    "answer": 6
+  },
+  {
+    "id": 2,
+    "question": "Francisco Franco ruled which European country from 1939 to 1975?",
+    "answer": "Spain"
+  },
+  {
+     "id": 3,
+    "question": "What type of boats did the Vikings use when exploring and raiding?",
+    "answer": "Longships"
+  },
+  {
+     "id": 4,
+    "question": "In what year was the Concorde’s first flight?",
+    "answer": 1969
+  },
+  {
+     "id": 5,
+    "question": "Which country did Germany invade to kickstart World War II?",
+    "answer": "Poland"
+  },
+  {
+     "id": 6,
+    "question": "What language was spoken in Ancient Rome?",
+    "answer": "Latin"
+  },
+  {
+     "id": 7,
+    "question": "Who discovered penicillin?",
+    "answer": "Alexander Fleming"
+  }
+]
