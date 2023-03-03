@@ -1,10 +1,11 @@
+const { genSalt, hash, compare } = require("bcrypt");
 const express = require("express");
 const authRouter = express.Router();
 
 const users = require("../config/users.json");
 const User = require("../models/User.js");
 
-authRouter.post("/sign-up", (req, res) => {
+authRouter.post("/sign-up", async (req, res) => {
   const { body } = req;
 
   // find the user
@@ -19,13 +20,21 @@ authRouter.post("/sign-up", (req, res) => {
   // if they don't exist, create new user
   else {
     let user = User(body);
+
+    // hash user password
+    let salt = await genSalt();
+    let hashedPassword = await hash(user.password, salt);
+    user.password = hashedPassword;
+
+    // add user to "database"
     users.push(user);
 
-    return res.status(201).json({ ...user, password: "" });
+    // respond with created user
+    return res.status(201).json(user);
   }
 });
 
-authRouter.post("/sign-in", (req, res) => {
+authRouter.post("/sign-in", async (req, res) => {
   const { body } = req;
 
   // find the user
@@ -40,18 +49,15 @@ authRouter.post("/sign-in", (req, res) => {
 
   // if the user exists, check their password
   if (userExists) {
-    // if the password is wrong, reject
-    if (userExists.password !== body.password) {
-      return res.status(401).json({ error: "incorrect password" });
-    }
+    const pass = await compare(body.password, userExists.password);
+    if (pass)
+      return res.status(200).json({
+        user: { ...userExists, password: "" },
+        cookie: "whakjsdfasd==?sdg.783246342",
+      });
     // else log in
     else {
-      return res
-        .status(200)
-        .json({
-          user: { ...userExists, password: "" },
-          cookie: "whakjsdfasd==?sdg.783246342",
-        });
+      return res.status(401).json({ error: "incorrect password" });
     }
   }
 });
@@ -108,5 +114,6 @@ authRouter.post("/me", (req, res) => {
     return res.status(200).json({ ...newUser, password: "" });
   }
 });
+
 
 module.exports = authRouter;

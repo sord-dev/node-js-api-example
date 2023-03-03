@@ -1,17 +1,17 @@
 [
   {
     "id": 1,
-    "username": "test-usr99",
-    "password": "password",
+    "username": "totally_not_a_test11",
+    "password": "$2b$10$9z9fXP1.BZdvTjSGSdc0gOeWWo.I1POaBW5v8mr1yPIEfVJ28oosa",
     "stats": {
-      "level": 4,
-      "progress": 78
+      "level": 0,
+      "progress": 0
     }
   },
   {
     "id": 2,
     "username": "totally_not_a_test",
-    "password": "password123",
+    "password": "$2b$10$9z9fXP1.BZdvTjSGSdc0gOeWWo.I1POaBW5v8mr1yPIEfVJ28oosa",
     "stats": {
       "level": 5,
       "progress": 43
@@ -20,28 +20,10 @@
   {
     "id": 3,
     "username": "real-test-usr99",
-    "password": "password",
+    "password": "$2b$10$9z9fXP1.BZdvTjSGSdc0gOeWWo.I1POaBW5v8mr1yPIEfVJ28oosa",
     "stats": {
       "level": 3,
       "progress": 22
-    }
-  },
-  {
-    "id": 4,
-    "username": "stalin",
-    "password": "password322",
-    "stats": {
-      "level": 7,
-      "progress": 78
-    }
-  },
-  {
-    "id": 5,
-    "username": "test-9912-bbyy",
-    "password": "password",
-    "stats": {
-      "level": 4,
-      "progress": 78
     }
   }
 ]
